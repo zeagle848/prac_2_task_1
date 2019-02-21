@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Problems
+namespace Problems.Program
 {
     public class  Program
     {
@@ -8,15 +8,15 @@ namespace Problems
         {
             string test="Hello, there are five words!";
 
-            string result=Prefix(test);
+            Program s= new Program();
+            string result=s.Prefix(test);
             Console.WriteLine(result);
         }
 
-        public static string Prefix(string input)
-        {            
-            int length =input.Length;
-            int wCount=input.Split(' ').Length;
-            return $"{length},{wCount}:{input}";
+        public string Prefix(string input)
+        {          
+            if(input==null){return null;} 
+            return $"{input.Length},{input.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length}:{input}";        
         }
     }
 }
